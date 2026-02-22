@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>scopion fish galary🐠</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        background: linear-gradient(
+          135deg,
+          #00acc1,
+          #006064
+        ); /* لون مائي احترافي */
+        color: white;
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding-bottom: 50px;
+      }
+
+      .main-header {
+        text-align: center;
+        padding: 40px 20px;
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .main-logo {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        border: 5px solid #fff;
+        margin-bottom: 15px;
+      }
+
+      .navbar a {
+        color: white;
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      .search-section {
+        text-align: center;
+        margin: 30px 0;
+      }
+
+      .search-section input {
+        padding: 12px;
+        width: 300px;
+        border-radius: 25px 0 0 25px;
+        border: none;
+      }
+
+      .search-section button {
+        padding: 12px 25px;
+        border-radius: 0 25px 25px 0;
+        border: none;
+        background: #ff9800;
+        color: white;
+        cursor: pointer;
+      }
+
+      /* رصة الكروت جنب بعض */
+      .fish-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        padding: 40px;
+        justify-items: center;
+      }
+      .fish-card {
+        width: 100%;
+        max-width: 280px;
+        background: white;
+        padding: 20px;
+        border-radius: 20px;
+        text-align: center; /* عشان كل حاجة تيجي في النص */
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* سنتر العناصر بالعرض */
+        gap: 10px; /* مسافة ثابتة بين الصورة والاسم والسعر */
+        transition: 0.3s;
+      }
+      .fish-card img {
+        width: 100%;
+        height: 200px; /* طول ثابت لكل الصور */
+        object-fit: cover; /* عشان الصورة متتمطش وتملى المربع */
+        border-radius: 10px;
+      }
+
+      /* تأكد إن الاسم واخد لون غامق عشان يبان */
+      .fish-card h3 {
+        color: #004d40;
+        margin: 10px 0 5px 0;
+        font-size: 1.2rem;
+      }
+
+      .fish-card p {
+        color: #555;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .cart-counter {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: #ff9800;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+      .brand-logo {
+        width: 200px; /* حجم اللوجو */
+        height: 200px;
+        border-radius: 50%; /* عشان يفضل دائري زي التصميم */
+        border: 3px solid #ff9800; /* برواز بلون جذاب يشد العين */
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.4); /* ضل يخلي اللوجو بارز */
+        margin-bottom: 10px;
+        object-fit: cover; /* يخلي الصورة مرتاحة جوه الدايرة */
+      }
+      .main-footer {
+        background: rgba(0, 77, 64, 0.9); /* لون ماتش مع الهيدر */
+        color: white;
+        text-align: center;
+        padding: 30px 10px;
+        margin-top: 50px;
+        border-top: 3px solid #ff9800;
+      }
+
+      .main-footer a {
+        color: #ff9800;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="logo-area">
+        <img
+          src="scorpion.shop.jpg"
+          alt="Scorpion Shop Logo"
+          class="brand-logo"
+        />
+        <h1>scopion fish galary🐠</h1>
+      </div>
+      <nav class="navbar">
+        <a href="#">الرئيسية</a>
+        <a href="#">المتجر</a>
+        <a href="#">المدونة</a>
+        <a href="#">تواصل معنا</a>
+      </nav>
+    </header>
+
+    <section class="search-section">
+      <input type="text" placeholder="ابحث عن سمكتك..." id="searchInput" />
+      <button onclick="searchFish()">بحث</button>
+    </section>
+    <div style="text-align: center; margin-bottom: 20px">
+      <button
+        onclick="sortFishByPrice()"
+        style="
+          background: #ff9800;
+          color: white;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 25px;
+          cursor: pointer;
+          font-weight: bold;
+        "
+      >
+        ترتيب حسب السعر (الأرخص أولاً) 💰
+      </button>
+    </div>
+
+    <main class="fish-container">
+      <div class="fish-card">
+        <img src="dics2.jpg" alt="Fish" />
+        <h3>سمكة ديسكس</h3>
+        <p>السعر: 500 ج.م</p>
+        <button onclick="addToCart()">إضافة للسلة 🛒</button>
+      </div>
+      <div class="fish-card">
+        <img src="gold-removebg-preview.png" alt="Fish" />
+        <h3>جولد فيش</h3>
+        <p>السعر: 200 ج.م</p>
+        <button onclick="addToCart()">إضافة للسلة 🛒</button>
+      </div>
+      <div class="fish-card">
+        <img src="fighter.jpg" alt="Fish" />
+        <h3>سمكة فايتر</h3>
+        <p>السعر: 150 ج.م</p>
+        <button onclick="addToCart()">إضافة للسلة 🛒</button>
+      </div>
+
+      <div class="fish-card">
+        <img src="coie.jpg" alt="Fish" />
+        <h3>سمكة كوي</h3>
+        <p>السعر: 800 ج.م</p>
+        <button onclick="addToCart()">إضافة للسلة 🛒</button>
+      </div>
+    </main>
+
+    <div class="cart-counter">السلة: <span id="cart-count">0</span></div>
+    <footer class="main-footer">
+      <p>© 2026 Scorpion Fish Gallery جميع الحقوق محفوظه "</p>
+      <div class="social-links">
+        <span>تابعنا: </span>
+        <a href="#">Facebook</a> | <a href="#">Instagram</a>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
